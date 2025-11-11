@@ -1,0 +1,36 @@
+.header {
+    gap: 16px;
+    width: 90%;
+    max-width: 900px;
+    margin: 32px auto;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.header p {
+    margin: 0;
+}
+
+.cta a {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 10px 10px;
+    background: linear-gradient(90deg, #f9572a, #ffc905);
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 16px;
+    display: inline-block;
+}
+
+.cta a:hover, .cta a:active {
+    background: linear-gradient(40deg, #ffc905, #f9572a);
+}
+
+.higlight {
+    background: linear-gradient(90deg, #f9572a, #ffc905);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 16px rgba($color: #000000, $alpha: 0.5);
+}
