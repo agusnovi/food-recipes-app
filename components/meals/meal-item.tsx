@@ -17,16 +17,22 @@ export default function MealItem({
   summary: string;
 }) {
   return (
-    <article>
-      <header className={styles.header}>
-        <Image src={image} fill alt="image" />
-        <h2>{title}</h2>
-        <p>{creator}</p>
-      </header>
-        <div className={styles.content}>
-            <p>{summary}</p>
-            <Link href={`/meals/${slug}`}>View Detail</Link>
+    <article className={styles.meals}>
+      <header>
+        <div className={styles.image}>
+          <Image src={image} fill alt="image" />
         </div>
+        <div className={styles.headerText}>
+          <h2>{title}</h2>
+          <p>{creator}</p>
+        </div>
+      </header>
+      <div className={styles.content}>
+        <p className={styles.summary}>{summary}</p>
+        <div className={styles.cta}>
+          <Link href={`/meals/${slug}`}>View Detail</Link>
+        </div>
+      </div>
     </article>
   );
 }

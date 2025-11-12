@@ -1,0 +1,59 @@
+.meals {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #2c1e19, #25200f);
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+    color: #ddd6cb;
+    transition: all 0.3s ease-in-out;
+}
+
+.image {
+    position: relative;
+    height: 300px;
+}
+
+.meals img {
+    object-fit: cover;
+}
+
+.headerText {
+    padding: 16px;
+}
+
+.headerText h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.headerText p {
+  color: #cfa69b;
+  font-style: italic;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    justify-content: space-between;
+}
+
+.cta {
+    text-align: right;
+    padding: 16px;
+}
+
+.cta a {
+    padding: 10px;
+    background: linear-gradient(90deg, #f9572a, #ff9b05);
+    border-radius: 4px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.cta a:hover, .cta a:active {
+    background: linear-gradient(90deg, #ff9b05, #f9572a);
+    box-shadow: 0 0 12px rgba(242, 100, 18, 0.8);
+}

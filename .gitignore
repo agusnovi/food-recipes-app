@@ -10,6 +10,9 @@
 !.yarn/releases
 !.yarn/versions
 .initdb.js
+meals.db
+pnpm-lock.yaml
+pnpm-workspace.yaml
 
 # testing
 /coverage

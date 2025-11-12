@@ -14,3 +14,15 @@ body {
   min-height: 100vh;
   background: radial-gradient(#282c34, #282c34);
 }
+
+.error, .not-found {
+    text-align: center;
+    color: white
+}
+
+.error h1, .not-found h1 {
+    background: linear-gradient(90deg, #ff9b05, #f9572a);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
