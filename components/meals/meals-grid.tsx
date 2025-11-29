@@ -1,3 +1,4 @@
+import { Meal } from "@/app/meals/[slug]/page";
 import MealItem from "./meal-item";
 
 import styles from "./meals-grid.module.scss"
@@ -5,13 +6,7 @@ import styles from "./meals-grid.module.scss"
 export default function MealsGrid({
   meals,
 }: {
-  meals: {
-    image: string;
-    slug: string;
-    creator: string;
-    title: string;
-    summary: string;
-  }[];
+  meals: Meal[];
 }) {
   return (
     <ul className={styles.grid}>

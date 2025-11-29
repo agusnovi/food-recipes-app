@@ -1,15 +1,20 @@
 import Link from "next/link"
-import { Suspense } from "react";
+import { Suspense } from "react"
 
-import MealsGrid from "@/components/meals/meals-grid";
+import MealsGrid from "@/components/meals/meals-grid"
 import { getMeals } from "@/lib/meals"
+import { Meal } from "./[slug]/page"
 
-import styles from "./page.module.scss"
+import styles from './page.module.scss';
+
+function isMeals(value: unknown): value is Meal[] {
+  return !!value && Array.isArray(value)
+}
 
 async function Meals() {
   const meals = await getMeals();
 
-  return <MealsGrid meals={meals} />;
+  return <MealsGrid meals={isMeals(meals) ? meals : []} />;
 }
 
 export default async function MealsPages() {

@@ -6,6 +6,21 @@ import { getMeal } from "@/lib/meals"
 
 import styles from './page.module.scss';
 
+export type Meal = {
+  id: number;
+  slug: string;
+  title: string;
+  image: string;
+  summary: string;
+  instructions: string;
+  creator: string;
+  creator_email: string;
+};
+
+function isMeal(value: unknown): value is Meal {
+  return !!value && typeof value === 'object'
+}
+
 async function MealDetail({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const meal = await getMeal(slug);
@@ -14,21 +29,28 @@ async function MealDetail({ params }: { params: Promise<{ slug: string }> }) {
     notFound();
   }
 
-  const instructions = meal.instructions.replace(/\n/g, '<br/>');
+  const instructions = isMeal(meal) && meal.instructions.replace(/\n/g, '<br/>');
 
   return (
     <>
       <header className={styles.header}>
         <div className={styles.image}>
-          <Image src={meal.image} alt={meal.image} priority fill />
+          <Image
+            src={isMeal(meal) ? meal.image : ''}
+            alt={isMeal(meal) ? meal.image : ''}
+            priority
+            fill
+          />
         </div>
         <div className={styles.headerText}>
-          <h1>{meal.title}</h1>
+          <h1>{isMeal(meal) && meal.title}</h1>
           <p className={styles.creator}>
             by
-            <a href={`mailto:${meal.creator_email}`}>{meal.creator}</a>
+            <a href={`mailto:${isMeal(meal) && meal.creator_email}`}>
+              {isMeal(meal) && meal.creator}
+            </a>
           </p>
-          <p className={styles.summary}>{meal.summary}</p>
+          <p className={styles.summary}>{isMeal(meal) && meal.summary}</p>
         </div>
       </header>
       <main>
