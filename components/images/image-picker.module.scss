@@ -1,0 +1,35 @@
+.picker .input {
+    display: none;
+}
+
+.picker .control {
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+    margin-bottom: 32px;
+}
+
+.picker .button {
+    padding: 8px;
+    min-width: 200px;
+    background: linear-gradient(90deg,  #fd4715, #f9b241);
+    color: white;
+    border: 0;
+    border-radius: 4px;
+}
+
+.preview {
+    width: 150px;
+    height: 150px;
+    border: 2px dashed #fd4715;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    position: relative;
+}
+
+.preview img {
+    object-fit: cover;
+}

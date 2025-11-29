@@ -1,0 +1,76 @@
+.header, .main {
+    width: 90%;
+    max-width: 1200px;
+    color: #fff;
+    margin: 3rem auto;
+}
+
+.highlight {
+    background: linear-gradient(90deg, #ffc905, #f9572a);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 16px rgba($color: #000000, $alpha: 0.5);
+}
+
+.form {
+    max-width: 800px;
+}
+
+.form label {
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.form input, .form textarea {
+    display: block;
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid #454952;
+    background: #1c2027;
+    font-size: 1.25rem;
+    padding: 0.5rem 1rem;
+    color: white;
+}
+
+.form textarea {
+    min-height: 300px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.row p {
+  width: 100%;
+}
+
+.actions {
+  text-align: right;
+}
+
+.actions button {
+    padding: 0.75rem 2rem;
+  background: linear-gradient(90deg, #f9572a, #ff9b05);
+  border: none;
+  color: #ffffff;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.actions button:hover,
+.actions button:focus {
+  background: linear-gradient(90deg, #fd4715, #f9b241);
+}
+
+.actions button:disabled,
+.actions button:hover:disabled,
+.actions button:focus:disabled {
+  background: #ccc;
+  color: #979797;
+  cursor: not-allowed;
+}

@@ -15,7 +15,8 @@ export default function MealItem({
   creator: string;
   title: string;
   summary: string;
-}) {
+  }) {
+  
   return (
     <article className={styles.meals}>
       <header>

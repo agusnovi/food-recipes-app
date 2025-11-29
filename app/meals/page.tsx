@@ -32,7 +32,7 @@ export default async function MealsPages() {
         </header>
         <main className={styles.main}>
           <Suspense
-            fallback={<p className={styles.loading}>Loading data....!</p>}
+            fallback={<p className="loading">Loading data....!</p>}
           >
             <Meals />
           </Suspense>
