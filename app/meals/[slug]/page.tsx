@@ -21,6 +21,21 @@ function isMeal(value: unknown): value is Meal {
   return !!value && typeof value === 'object'
 }
 
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const meal = await getMeal(slug);
+
+    if (!meal) {
+      notFound();
+    }
+  
+  return {
+    title: isMeal(meal) && meal.title,
+    description: isMeal(meal) && meal.summary,
+  };
+
+}
+
 async function MealDetail({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const meal = await getMeal(slug);
@@ -36,8 +51,12 @@ async function MealDetail({ params }: { params: Promise<{ slug: string }> }) {
       <header className={styles.header}>
         <div className={styles.image}>
           <Image
-            src={isMeal(meal) ? meal.image : ''}
-            alt={isMeal(meal) ? meal.image : ''}
+            src={
+              isMeal(meal)
+                ? `https://food-s3-nextjs-img.s3.amazonaws.com/${meal.image}`
+                : ''
+            }
+            alt={isMeal(meal) ? meal.title : ''}
             priority
             fill
           />

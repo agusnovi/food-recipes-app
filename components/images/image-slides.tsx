@@ -3,20 +3,29 @@
 import { useEffect, useState } from "react"
 import Image from "next/image"
 
-import burger from "@/public/images/burger.jpg";
-import curry from '@/public/images/curry.jpg';
-import dumplings from '@/public/images/dumplings.jpg';
-import macncheese from '@/public/images/macncheese.jpg';
-import pizza from '@/public/images/pizza.jpg';
-
 import styles from "./image-slides.module.scss"
 
 const images = [
-  { image: burger, alt: 'Burger' },
-  { image: curry, alt: 'Curry' },
-  { image: dumplings, alt: 'Dumplings' },
-  { image: macncheese, alt: 'Macncheese' },
-  { image: pizza, alt: 'Pizza' },
+  {
+    image: 'https://food-s3-nextjs-img.s3.amazonaws.com/burger.jpg',
+    alt: 'Burger',
+  },
+  {
+    image: 'https://food-s3-nextjs-img.s3.amazonaws.com/curry.jpg',
+    alt: 'Curry',
+  },
+  {
+    image: 'https://food-s3-nextjs-img.s3.amazonaws.com/dumplings.jpg',
+    alt: 'Dumplings',
+  },
+  {
+    image: 'https://food-s3-nextjs-img.s3.amazonaws.com/macncheese.jpg',
+    alt: 'Macncheese',
+  },
+  {
+    image: 'https://food-s3-nextjs-img.s3.amazonaws.com/pizza.jpg',
+    alt: 'Pizza',
+  },
 ];
 
 export default function ImageSlideshow() {
@@ -45,6 +54,7 @@ export default function ImageSlideshow() {
                         src={image.image}
                         alt={image.alt}
                         priority
+                        fill
                       />
                     );
                 })

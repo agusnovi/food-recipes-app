@@ -2,6 +2,11 @@ import fs from "node:fs"
 import sql from "better-sqlite3"
 import slugify from "slugify"
 import xss from "xss"
+import { S3 } from "@aws-sdk/client-s3"
+
+const s3 = new S3({
+  region: 'ap-southeast-2',
+})
 
 const db = sql("meals.db")
 
@@ -25,15 +30,15 @@ export async function postMeal(meal: any) {
   const extention = meal.image.name.split(".").pop()
   const fileName = `${meal.slug}.${extention}`
 
-  const stream = fs.createWriteStream(`public/images/${fileName}`)
   const bufferedImage = await meal.image.arrayBuffer()
-  stream.write(Buffer.from(bufferedImage), (error) => {
-    if (error) {
-      throw new Error("failed")
-    }
-  })
-
-  meal.image = `/images/${fileName}`;
+  
+  s3.putObject({
+    Bucket: 'food-s3-nextjs-img',
+    Key: fileName,
+    Body: Buffer.from(bufferedImage),
+    ContentType: meal.image.type,
+  });
+  meal.image = fileName
 
   await new Promise((resolve) => setTimeout(resolve, 5000))
   

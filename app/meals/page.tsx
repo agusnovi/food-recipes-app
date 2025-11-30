@@ -6,9 +6,15 @@ import { getMeals } from "@/lib/meals"
 import { Meal } from "./[slug]/page"
 
 import styles from './page.module.scss';
+import { Metadata } from "next"
 
 function isMeals(value: unknown): value is Meal[] {
   return !!value && Array.isArray(value)
+}
+
+export const metadata: Metadata = {
+  title: "All meals",
+  description: "render all meals"
 }
 
 async function Meals() {

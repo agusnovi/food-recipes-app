@@ -21,7 +21,11 @@ export default function MealItem({
     <article className={styles.meals}>
       <header>
         <div className={styles.image}>
-          <Image src={image} fill alt="image" />
+          <Image
+            src={`https://food-s3-nextjs-img.s3.amazonaws.com/${image}`}
+            fill
+            alt="image"
+          />
         </div>
         <div className={styles.headerText}>
           <h2>{title}</h2>
